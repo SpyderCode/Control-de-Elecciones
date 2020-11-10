@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>UsuariosAdmin</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+<link href="tipos.css" rel="stylesheet" type="text/css">
+    
+</head>   
+<body>
+    
+<?php 
+    session_start();
+$server = "localhost";
+$username = "root";
+$password = "";
+$database ="phplogin";
+
+//Crea una conexion a la base de datos
+$con = mysqli_connect($server,$username,$password) or die("Error conectando al servidor");
+mysqli_select_db($con,$database ) or die("No se pudo conectar a la base de datos");
+    
+    
+//Para el search
+    if (isset($_POST['valor'])){
+        $valor=$_POST['valor'];
+        $result = mysqli_query($con,"SELECT * FROM accounts WHERE (username LIKE '%".$valor."%') OR (email LIKE '%".$valor."%')");
+    }else{
+     $result = mysqli_query($con,"SELECT * FROM accounts");   
+    }
+    
+    $con->close();
+    ?>
+	
+<div class="container">
+	<div class="primary_header">
+	    <h1 class="title"> USUARIOS REGISTRADOS</h1> 
+  </div>
+  <header>
+	   <nav class="tercer_header" id="menuPrin">
+		   <ul>
+		   <li>Cerrar Sesión</li>
+		   <li>Configuración</li> 
+		   <li>Inicio</li>
+		</ul>
+	</nav>
+	  </header>
+&nbsp;
+    <form action="Usuarios.php" method="post">
+	<div class="Buscar">
+		<i class="fas fa-search"></i>
+		 <input type="text" placeholder="Buscador" name="valor">
+	</div>
+    </form>
+	<div class="Tabla">
+<table class="table">
+  <tbody>
+      
+    <tr>
+      <th>id</th>
+      <th>Nombre Completo</th>
+      <th>Correo Electronico</th>
+      <th>Telefono</th>
+      <th>Calle</th>
+      <th>No. Exterior</th>
+      <th>No. Interior</th>
+      <th>Colonia</th>
+      <th>Municipio</th>
+      <th>Tipo De Usuario</th>
+    </tr>
+    <!--Para que aparezca el los datos al table    -->
+      <?php 
+      
+      while($row = mysqli_fetch_array($result)){
+            $id=$row["id"];
+          $table_header= "<td>" .
+              '<select status_id="'.$id.'" id="menu" class="menu" onchange="test('.$id.',this)">';
+          
+          echo "<tr onclick='javascript:showRow(this);'>";
+          echo "<td id='testing'>" . $row["id"] . "</td>";
+          echo "<td>" . $row["username"] . "</td>";
+          echo "<td>" . $row["email"] . "</td>";
+          echo "<td>" . $row["Telefono"] . "</td>";
+          echo "<td>" . $row["calle"] . "</td>";
+          echo "<td>" . $row["numExt"] . "</td>";
+          echo "<td>" . $row["numInt"] . "</td>";
+          echo "<td>" . $row["colonia"] . "</td>";
+          echo "<td>" . $row["municipio"] . "</td>";
+          
+          if ($row["Role"]=="Admin"){
+            echo"<td>" . $row["Role"] . "</td>";   
+           
+          }elseif($row["Role"]=="Coordinador"){
+            echo $table_header; 
+            echo "<option disabled value='Nada'>Nada</option>";
+            echo "<option value='Coordinador' selected>Coordinador</option>";
+            echo "<option value='Capturista'>Capturista</option>";
+            
+            echo " </select>";
+              echo "</td>";
+          }elseif($row["Role"]=="Capturista"){
+            echo $table_header; 
+            echo "<option disabled value='Nada'>Nada</option>";
+            echo "<option value='Coordinador'>Coordinador</option>";
+            echo "<option value='Capturista' selected>Capturista</option>";  
+          }else{
+            echo $table_header; 
+            echo "<option disabled value='Nada' selected>Nada</option>";
+            echo "<option value='Coordinador'>Coordinador</option>";
+            echo "<option value='Capturista'>Capturista</option>";  
+          }
+          echo "</tr>";
+    }
+      ?>
+	</tbody>
+       
+		</table>
+	</div>
+    
+  <div class="Botones">
+	   
+	   <input type="submit" value="Eliminar" class="BoEliminar" onclick="deletion()">
+	   
+	   <input type="submit" value="Modificar" class="BoModificar">
+	
+	   <input type="submit" value="Guardar" class="BoGuardar">
+	   
+  </div>
+</div>
+<script>
+    function test(id,selectObject){
+     var role = selectObject.value;
+     var personid=id;
+     $.ajax({
+        type: "POST",
+        url: 'change_role.php',
+        data: { personid: personid,role:role }, 
+        success: function(data) {
+        alert(data);
+  }
+});
+    //alert(role);
+    }
+    
+    </script>
+<script>
+    var x;
+    function showRow(row){
+      x=row.cells;
+    }
+    function deletion(){
+        if(x){
+        var id=x[0].innerHTML;
+        var name=x[1].innerHTML;    
+        $.ajax({
+        type: "POST",
+        url: 'delete_user.php',
+        data: { id:id,name:name }, 
+        success: function(data) {
+        alert(data);
+            }   
+        });
+        
+        x[0].closest("tr").remove();    
+        x=null;
+        } else{
+            alert("seleccione un usuario");
+        }
+    }
+    </script>
+</body>
+</html>

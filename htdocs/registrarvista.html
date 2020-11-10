@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Registrarse</title> 
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+	<link rel="stylesheet" href="estilos.css">
+	<script src="https://kit.fontawesome.com/1078351fe9.js" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript">
+function refreshIt() {
+   if (!document.images) return;
+   document.images['logo'].src = 'logo.png?' + Math.random();
+   setTimeout('refreshIt()',1000); // refresh every 5 secs
+}
+</script>
+</head>  
+<body onLoad=" setTimeout('refreshIt()',1000)">
+<img name="logo" src="logo.png" width="512" height="100" alt=""/>
+<form class="formulario" action="register.php" method="post" autocomplete="off">
+    
+   <h1>Registrarse</h1>
+     <div class="contenedor">
+     
+     <div class="input-contenedor">
+         <i class="fas fa-user icon"></i>
+        <input type="text" name="username" placeholder="Nombre Completo" id="username" required>
+         
+       </div>
+         
+         <div class="input-contenedor">
+         <i class="fas fa-envelope icon"></i>
+         <input type="text" name="email" placeholder="Correo Electronico" id="email" required>
+         </div>
+		 
+		 <div class="input-contenedor">
+         <i class="fas fa-phone-alt icon"></i>
+		 <input type="text" name ="telefono" placeholder="Telefono" id="telefono" required>
+		 </div>
+		 
+		 <div class="input-contenedor">
+	  <em class="fas fa-key icon"></em>
+      <input type="password" name="password" placeholder="Contraseña" id="password" required>    
+       </div>
+		 
+		 <div class="Domicilio">
+		   <h1 class="title">informacion de domicilio</h1>
+		 </div>
+		 
+	   <div class="input-contenedor">
+		 <i class="fas fa-map-marker-alt icon"></i>
+		 <input type="text" name="Calle" placeholder="Calle" id="Calle" required>
+		 </div>
+		 
+		 <div class="input-contenedor">
+		 <i class="fas fa-hashtag icon"></i>
+		 <input type="text" name="Exterior" placeholder="No. Exterior" id="Exterior" required>
+		 </div>
+		 
+		 <div class="input-contenedor">
+		 <i class="fas fa-hashtag icon"></i>
+		 <input type="text" name="Interior" placeholder="No. Interior" id="Interior" required>
+		 </div>
+		 
+		 <div class="input-contenedor">
+		 <i class="fas fa-map-marker-alt icon"></i>
+		 <input type="text" name="colonia" placeholder="colonia" id="colonia" required>
+		 </div>
+		 
+		 <div class="input-contenedor">
+		 <i class="fas fa-map-marker-alt icon"></i>
+		 <input type="text" name="municipio" placeholder="municipio" id="municipio" required>
+		 </div>
+		 
+         <input type="submit" value="Registrarse" class="button">
+         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+         <p>¿Ya tienes una cuenta?<a class="link" href="index.html">Iniciar Sesión</a></p>
+     </div></form>
+	<p style="color:#FFFFFF">Control de compaña, en elección interna o popular la cual se muestran gráficas de progreso de promovidos y votación real o simulada.</p>
+</body>
+</html>

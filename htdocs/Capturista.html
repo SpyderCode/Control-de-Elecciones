@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Capturista</title>
+<link href="Estilosn.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="https://kit.fontawesome.com/1078351fe9.js" crossorigin="anonymous"></script>
+<script language="JavaScript">
+function refreshIt() {
+   if (!document.images) return;
+  document.images['logo'].src = 'logo.png?' + Math.random();
+   setTimeout('refreshIt()',1000); // refresh every 5 secs
+}
+</script>	
+</head>
+<body onload="checksession()">
+<div class="container">
+	
+	<div class="primary_header">
+	<h1 class="title">CAPTURISTA</h1>
+	</div>
+  
+	<div class="navbar">
+	<div class ="dropdown">
+		<button class="dropbtn">
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="destroy_session.php">Cerrar Sesión</a>
+		</div>
+	</div>
+	<a href="Capturista.html">Inicio</a>
+	</div>
+	
+	<div class="logo"><img id="logo" src="logo.png" width="512" height="86" alt=""/></div>
+	
+	<div class="MenuCap">
+		<div class="agregar">
+			<a class="NuevaRed" href="AgregarPromovido.php"><i class="fas fa-plus"></i> Agregar Una Red</a>
+		</div>
+		<div class="agregar">
+			<a class="NuevaRed" href="AgregarPromotor.html" ><i class="fas fa-plus"></i> Agregar Promotor</a>
+		</div>
+		<div class="agregar">
+			<a class="NuevaRed" href="AgregarLíder.html"><i class="fas fa-plus"></i> Agregar Líder</a>
+		</div>
+	</div>
+</div>
+<script>
+    function checksession(){
+       $.ajax({
+           type:"POST",
+           url:"check_session_capturista.php",
+           success:function(data){
+             if(data==="redirect"){
+               window.location.href = 'index.html'
+             } 
+           }
+           
+           
+       }); 
+    refreshIt(); 
+    }   
+</script>
+</body>
+</html>

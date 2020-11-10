@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AgregarPromotor</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="https://kit.fontawesome.com/1078351fe9.js" crossorigin="anonymous"></script>
+<link href="Estilosn.css" rel="stylesheet" type="text/css">
+<link href="cssejemplo.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="checksession()">
+	<div class="container">
+		
+	<div class="primary_header">
+	<h1 class="title">Agregar Promotor</h1>
+	</div>
+  
+	<div class="navbar">
+	<div class ="dropdown">
+		<button class="dropbtn">
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="destroy_session.php">Cerrar Sesión</a>
+		</div>
+	</div>
+	<a href="Capturista.html">Inicio</a>
+	</div>
+		
+		<h1 class="DatosRed">Datos De Promotor</h1>
+		
+		<form class="DatRed">
+			
+		 <div class="NomLider">
+			 <div class="NombreL">
+				 <label>Nombre De Líder:</label>
+			 </div>
+			 <div class="NomLidR">
+				 <input id="nomlid" type="text" placeholder="Nombre Líder">
+			 </div>
+			 <div class="ApeLidR">
+				 <input id="apelidp" type="text" placeholder="Apellido Paterno">
+			 </div>
+			 <div class="ApeLidR">
+				 <input id="apelidm" type="text" placeholder="Apellido Materno">
+			 </div>
+		  </div>	
+			
+		  <div class="NomPromtr">
+			 <div class="NombreP">
+				 <label>Nombre De Promotor:</label>
+			 </div>
+			 <div class="NomPromR">
+				 <input id="nomprom" type="text" placeholder="Nombre Promotor">
+			 </div>
+			 <div class="ApePromR">
+				 <input id="apepromp" type="text" placeholder="Apellido Paterno">
+			 </div>
+			 <div class="ApePromR">
+				 <input id="apepromm" type="text" placeholder="Apellido Maternos">
+			 </div> 
+		  </div>
+			</form>
+		
+		<form class="DatRed">	
+			<div class="Domicilio">
+			 <div class="DatosDom">
+				 <label>Domicilio:</label>
+			 </div>
+			 <div class="Calle">
+				 <input id="domicilio" type="text" placeholder="Calle Y # Interior-Exterior">
+			 </div>
+			 <div class="ColCom">
+				 <input id="colonia" type="text" placeholder="Colonia/Comunidad">
+			 </div>
+			 <div class="Mun">
+				 <input id="municipio" type="text" placeholder="Municipio">
+			 </div>
+			 <div class="Secc">
+				 <input id="seccion" type="text" placeholder="Sección">
+			 </div>	
+		  </div>
+			
+		  <div class="DatOCR">
+			 <div class="OCR">
+				 <label>OCR:</label>
+			 </div>
+			 <div class="OCRr">
+				 <input id="ocr" type="text" placeholder="OCR">
+			 </div>
+		  </div>
+			
+			<div class="Telefono">
+			 <div class="numTel">
+				 <label>Teléfono:</label>
+			 </div>
+			 <div class="TelR">
+				 <input id="telefono" type="text" placeholder="Teléfono">
+			 </div>
+		  </div>
+		</form>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		<div class="Botones">
+			<button class="Boton" onclick="document.getElementById('id01').style.display='block'">Guardar</button>
+		</div>
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<div class="modal-content animate">
+				<div class="container">
+					<label for="psw"><b>Contraseña</b></label>
+					<input type="password" placeholder="Contraseña" name="psw" id="pswd" required>
+					<button type="submit" onclick="verify_pass()">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<script>
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+	
+<script>
+    function checksession(){
+       $.ajax({
+           type:"POST",
+           url:"check_session_capturista.php",
+           success:function(data){
+             if(data==="redirect"){
+               window.location.href = 'index.html'
+             } 
+           }
+           
+           
+       }); 
+    }//Fin CHeck Session
+
+    function save(){
+        var nomlid=document.getElementById("nomlid").value;
+        var apelidp=document.getElementById("apelidp").value;
+        var apelidm=document.getElementById("apelidm").value;
+        
+        var nomprom=document.getElementById("nomprom").value;
+        var apepromp=document.getElementById("apepromp").value;
+        var apepromm=document.getElementById("apepromm").value;
+        
+        var domicilio=document.getElementById("domicilio").value;
+        var colonia=document.getElementById("colonia").value;
+        var municipio=document.getElementById("municipio").value;
+        var seccion=document.getElementById("seccion").value;
+        var ocr=document.getElementById("ocr").value;
+        var telefono=document.getElementById("telefono").value;
+        
+         if(nomlid && apelidp && apelidm &&nomprom && apepromp && apepromm && domicilio && colonia && municipio && seccion && ocr && telefono){
+            if(!isNaN(telefono) && telefono.length>=10){
+             
+                $.ajax({
+            type: "POST",
+            url: 'insert_promotor.php',
+            data: {nomlid:nomlid, apelidp:apelidp, apelidm:apelidm, nomprom:nomprom, apepromp:apepromp, apepromm:apepromm, domicilio:domicilio, colonia:colonia, municipio:municipio, seccion:seccion, ocr:ocr, telefono:telefono}, 
+            success: function(data) {
+                if(data.includes("ERROR")){
+                   alert(data);
+                   }else{
+                    alert(data);
+        document.getElementById("nomlid").value = "";
+        document.getElementById("apelidp").value = "";
+        document.getElementById("apelidm").value = "";
+                       
+        document.getElementById("nomprom").value = "";
+        document.getElementById("apepromp").value = "";
+        document.getElementById("apepromm").value = "";
+                       
+        document.getElementById("domicilio").value = "";
+        document.getElementById("colonia").value = "";
+        document.getElementById("municipio").value = "";
+        document.getElementById("seccion").value = "";
+        document.getElementById("ocr").value = "";
+        document.getElementById("telefono").value = ""; 
+                   }
+                }   
+            });    
+                
+                
+            }else{
+                alert("El campo del telefono no puede tener letras ni caracteres especiales y ser de minimo 10 numeros")  
+              }
+             
+             
+             
+             
+         }else{
+               alert("Hay campos sin llenar");
+           }
+        
+        
+        
+        
+    }
+ function verify_pass(){
+        var pswd=document.getElementById("pswd").value;
+            $.ajax({
+           type:"POST",
+           url:"verify_password.php",
+            data: {pswd:pswd},
+           success:function(data){
+             if(data==="true"){
+                save();
+                 modal.style.display = "none";
+                 document.getElementById("pswd").value="";
+             }else{
+                     alert("Contraseña esta Incorrecta");
+                 }
+             } 
+           
+           
+       });
+    }
+    
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Configuración</title>
+<script src="https://kit.fontawesome.com/1078351fe9.js" crossorigin="anonymous"></script>
+<link href="tipos.css" rel="stylesheet" type="text/css">
+<link href="cssejemplo.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script >
+function refreshIt() {
+   if (!document.images) return;
+   document.images['logo'].src = 'logo.png?' + Math.random();
+   setTimeout('refreshIt()',1000); // refresh every 5 secs
+}
+</script>
+</head>
+
+<body onload="checksession()">
+<div class="container">
+		<div class="primary_header">
+	    <h1 class="title"> CONFIGURACIÓN</h1>
+		</div>
+<div class="navbar">
+   <div class ="dropdown">
+    <button class="dropbtn">
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Configuración.html">Configuración</a>
+	  <a href="destroy_session.php">Cerrar Sesión</a>
+    </div>
+   </div>
+	  <a href="PaginaAdmin.html">Inicio</a>
+</div>
+	&nbsp;
+<div class="TablaComp">
+	
+   <div class="tab">
+  	 <button class="tablinks" onmouseover="openCity(event, 'CamContraseña')">Cambiar Contraseña</button>
+  	 <button class="tablinks" onmouseover="openCity(event, 'Logo')">Cambiar Logo</button>
+ 	 <button class="tablinks" onmouseover="openCity(event, 'Eliminar')">Eliminar Base de Datos</button>
+   </div>
+
+   <div id="CamContraseña" class="tabcontent">
+      <h3>Cambiar Contraseña </h3>
+      <p>Se recomienda usar una contraseña segura que no uses en ningún otro sitio.</p>
+	 <div class="contentContra">
+		
+		<div class="input-contenedor">
+         <input id="OldPass" type="text" placeholder="Contraseña Actual" name="Pass">
+         </div>
+		&nbsp;
+		<div class="input-contenedor">
+         <input id="NewPass" type="text" placeholder="Contraseña Nueva" name="newPass">
+         </div>
+		&nbsp;
+		<div class="input-contenedor">
+         <input id="NewNewPass" type="text" placeholder="Repita Contraseña Nueva" name="newPass2">
+         </div>
+		 <button class="button" onclick="updatePass(document.getElementById('OldPass').value,document.getElementById('NewPass').value,document.getElementById('NewNewPass').value)">Guardar</button>
+	 </div>
+   </div>
+	
+   <div class="contenTabla">
+      <form action="upload_pic.php" method="post" enctype="multipart/form-data" id="upload">
+	  <div id="Logo" class="tabcontent">
+  	   <h3>Cambiar Logo</h3>
+ 	   <p>Cambiar imagen que aparecera en paginas principales.</p>
+		<div class="CamLogo">
+			<input type="file" name="fileToUpload" id="fileToUpload" class="boton">
+			<button id="submit" class="boton">Cambiar Logo</button>
+			<div class="imagLogo">
+			<img id="logo" src="logo.png" alt="" class="Clogo"></div>
+		</div>
+	   </div>
+       </form>
+	   
+    <div id="Eliminar" class="tabcontent">
+      <h3>Eliminar Base De Datos</h3>
+      <p>Advertencia: Esto eliminará todo el contenido de las bases de datos excepto por la cuenta del administrador.</p>
+	  <button onclick="document.getElementById('id01').style.display='block'" class="boton">Eliminar Base De Datos</button>
+    </div>
+ </div>
+</div>
+	<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<div class="modal-content animate">
+				<div class="container">
+					<label for="psw"><b>Contraseña</b></label>
+					<input type="password" placeholder="Contraseña" name="psw" id="pswd" required>
+					<button type="submit" onclick="verify_pass()">Guardar</button>
+				</div>
+			</div>
+		</div>
+</div>
+<script>
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+    
+</script>
+<script>
+    function deleteDB(){
+       var result=confirm('Are you sure?');
+        if(result){
+            $.ajax({
+                url: 'delete_database.php',
+                success: function (response) {//response is value returned from php (for your example it's "bye bye"
+                alert(response);
+                }
+            });
+        }}
+    
+    function updatePass(OldPass,NewPass,NewNewPass){
+        var OldPass=OldPass;
+        var NewPass=NewPass;
+        var NewNewPass=NewNewPass;
+        if(NewPass===NewNewPass){
+        $.ajax({
+            type: "POST",
+            url: 'change_admin_pass.php',
+            data: { OldPass: OldPass,NewPass:NewPass }, 
+            success: function(data) {
+            if(data==="redirect"){
+               window.location.href = 'index.html' 
+            }else{
+            alert(data);
+            }
+            }
+        });
+    }else{
+        alert("No son iguales las nuevas contraseñas");
+    }
+}
+    function checksession(){
+        setTimeout('refreshIt()',1000);
+       $.ajax({
+           type:"POST",
+           url:"check_session.php",
+           success:function(data){
+             if(data==="redirect"){
+               window.location.href = 'index.html'
+             } 
+           }
+           
+           
+       }); 
+    }  
+    
+     function verify_pass(){
+        var pswd=document.getElementById("pswd").value;
+            $.ajax({
+           type:"POST",
+           url:"verify_password.php",
+            data: {pswd:pswd},
+           success:function(data){
+             if(data==="true"){
+                deleteDB();
+                 modal.style.display = "none";
+                 document.getElementById("pswd").value="";
+             }else{
+                     alert("Contraseña esta Incorrecta");
+                 }
+             } 
+           
+           
+       });
+    }
+    
+    </script>
+</body>
+</html>

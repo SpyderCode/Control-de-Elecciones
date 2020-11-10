@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Coordinador</title>
+<script src="https://kit.fontawesome.com/1078351fe9.js" crossorigin="anonymous"></script>
+<link href="Estilosn.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body onload="checksession()">
+	<div class="container">
+	
+	<div class="primary_header">
+	<h1 class="title">COORDINADOR</h1>
+	</div>
+  
+	<div class="navbar">
+	<div class ="dropdown">
+		<button class="dropbtn">
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="destroy_session.php">Cerrar Sesión</a>
+		</div>
+	</div>
+	<a href="Coordinador.html">Inicio</a>
+	</div>
+	
+	<div class="logo"><img id="logo" src="logo.png" width="512" height="86" alt=""/></div>
+	
+	<div class="MenuCoor">
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooLíder.php"><i class="fas fa-chart-bar"></i> Líder</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooPromotor.php" ><i class="fas fa-chart-bar"></i> Promotor</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooMuni.php"><i class="fas fa-chart-bar"></i> Municipio</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooColCom.php"><i class="fas fa-chart-bar"></i> Colonia / Cominidad</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooSección.php"><i class="fas fa-chart-bar"></i> Sección</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráCooPromoHM.html"><i class="fas fa-chart-bar"></i> Promovidos Hombres y Mujeres</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooPromRagEdad.html"><i class="fas fa-chart-bar"></i> Promovidos En Rango De Edad</a>
+		</div>
+		<div class="BotonesDM">
+			<a class="botonGraf" href="GráfCooVotación.php"><i class="fas fa-chart-bar"></i> Votación</a>
+		</div>
+	</div>
+</div>
+<script>
+   function checksession(){
+       $.ajax({
+           type:"POST",
+           url:"check_session_coordinador.php",
+           success:function(data){
+             if(data==="redirect"){
+               window.location.href = 'index.html'
+             } 
+           }      
+       }); 
+      setTimeout('refreshIt()',1000);
+    } 
+    function refreshIt() {
+   if (!document.images) return;
+   document.images['logo'].src = 'logo.png?' + Math.random();
+   setTimeout('refreshIt()',1000); // refresh every 5 secs
+}
+    
+    </script>   
+</body>
+</html>

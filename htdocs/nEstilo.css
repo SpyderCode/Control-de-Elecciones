@@ -1,0 +1,134 @@
+@charset "utf-8";
+div .primary_header {
+    width: 150%;
+    display: compact;
+    text-align: center;
+    text-indent: 10px;
+    background-color: #1A2537;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: Arial;
+}
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #86B4F0;
+    font-family: Arial;
+    width: 150%;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: right;
+    font-size: 16px;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* The dropdown container */
+.dropdown {
+    float: right;
+    overflow: hidden;	
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #FFFFFF;
+    color: #000000;	
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 135%;
+    right: 0;
+    width: 15%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    z-index: 1;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.contenedor-inp{
+    text-align: right;
+    width: 150%;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+th {
+  background-color:#86B4F0;
+  color: white;
+}
+.table {
+    width: 150%;
+	
+}
+
+tr.selected td{
+   background: cadetblue; 
+}
+.titulo {
+    width: 150%;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0;
+    font-size: 30px;
+    color: #1A2537;
+}
+.booton{
+    border: none;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    background: #1a2537;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.booton:hover{
+	background: cadetblue;
+}
+.Bottones{
+    width: 150%;
+    text-align: center;
+}

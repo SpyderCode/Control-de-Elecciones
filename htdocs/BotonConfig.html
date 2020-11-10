@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Config</title>
+	<link href="config.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript">
+function refreshIt() {
+   if (!document.images) return;
+   document.images['logo'].src = 'logo.png?' + Math.random();
+   setTimeout('refreshIt()',1000); // refresh every 5 secs
+}
+</script>
+</head>
+	
+<body onLoad=" setTimeout('refreshIt()',1000)"><table class="tables">
+  <tbody>
+    <tr>
+      <td class="conf"><h1>Configuración</h1></td>
+    </tr>
+  </tbody>
+</table>
+<table class="tables">
+  <tbody>
+    <tr>
+      <td class="logo"><img name="logo" src="logo.png" width="512" height="86" alt=""/></td>
+    </tr>
+  </tbody>
+</table>
+<form action="upload_pic.php" method="post" enctype="multipart/form-data" id="upload">
+<table class="tables">
+  <tbody>
+    <tr>
+      <td class="cambiar">
+          <input type="submit" name="button" name="submit" value="Cambiar logo">
+        </td>
+      <td class="select" >
+          <input type="file" name="fileToUpload" id="fileToUpload" value="Seleccionar archivo">
+        </td>
+    </tr>
+    <tr>
+      <td class="eliminar"><input type="button" name="button2" id="button2" value="Eliminar BD"></td>
+      <td class="inicio"><h2><a href="PaginaAdmin.html">Inicio</a></h2></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+<table class="tables">
+  <tbody>
+    <tr>
+     <td class="td"><img src="" width="300" height="300" alt=""/></td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;</p>
+<blockquote>&nbsp;</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+		
+</html>

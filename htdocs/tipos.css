@@ -1,0 +1,532 @@
+@charset "utf-8";
+
+div .primary_header {
+    width: 100%;
+    display: compact;
+    text-align: center;
+    text-indent: 10px;
+    background-color: #A2A2A2;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: Arial;
+}
+#menu ul li {
+    width: 45%;
+    font-family: Arial;
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    background-color: #A2A2A2;
+    border: 10ch hidden #FFFFFF;
+}
+.secondary_header ul li:hover {
+	color:#5E5E5E;
+	cursor: pointer;
+}
+
+.tercer_header {
+	width: 100%;
+	padding-top: 0px;
+	padding-bottom: 20px;
+	background-color:#A2A2A2;
+	clear:left;
+}
+.container.tercer_header ul {
+	margin-top: 0%;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+	width: 100%;
+}
+.tercer_header ul li {
+	list-style: none;
+	float:right;
+	margin-right: auto;
+	margin-top: 0px;
+	font-family: Arial;
+	font-weight: normal;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+	margin-left: auto;
+	text-align:right;
+	width: 15%;
+	transition: all 0.3s linear;
+}
+.tercer_header ul li:hover {
+	color: #5E5E5E;
+	cursor: pointer;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+th {
+  background-color:#A2A2A2;
+  color: white;
+}
+
+.Buscar {
+    font-size: 15px;
+    width: 98%;
+    padding: 10px;
+    border: none;
+    text-align: right;
+}
+
+.table {
+    width: 100%;
+}
+.BoEliminar, .BoGuardar,.BoModificar{
+    padding-top: 10px;
+    padding-right: 5px;
+    width: 30%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;	
+}
+.BoEliminar:hover {
+    background: #5E5E5E;
+}
+.BoModificar:hover{
+	background: #5E5E5E;
+}
+.BoGuardar:hover{
+	background: #5E5E5E;
+}
+div .BoEliminar {
+    width: 25%;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+div .BoModificar {
+	 width: 25%;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+div .BoGuardar {
+    width: 25%;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+
+div .Botones {
+    text-align: center;    
+}
+
+tr.selected td{
+   background: #5E5E5E; 
+}
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #A2A2A2;
+    font-family: Arial;
+    float: right;
+    width: 100%;
+}
+
+.navbar a {
+    float: right;
+    font-size: 16px;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdown {
+    float: right;
+    overflow: hidden;	
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; 
+  margin: 0; 
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #FFFFFF;
+    color: #000000;	
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 100;
+    right: 0;
+    width: 15%;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    z-index: 1;
+}
+
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.tab {
+  float: left;
+  border: 1px solid #A2A2A2;
+  background-color: #A2A2A2;
+  width: 27%;
+  height: 300px;
+	
+}
+
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #A2A2A2;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+.tab button:hover {
+  background-color:#FFFFFF;
+}
+
+.tab button.active {
+  background-color:#FFFFFF;
+}
+
+.tabcontent {
+    float: right;
+    padding: 0px 12px;
+    border: 1px solid #A2A2A2;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+    display: none;
+    font-family: Arial;
+    color: #A2A2A2;
+}
+
+.contentContra{
+    width: 100%;
+    text-align: center;
+}
+
+.button{
+    border: none;
+    width: 25%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.button:hover{
+    background: #5E5E5E;
+}
+input[type="password"] {
+    font-size: 12px;
+    width: 30%;
+    padding: 5px;
+    border: 1px solid #A2A2A2;
+}
+.CamLogo{
+    text-align: center;
+    width: 100%;
+}
+
+.boton{
+    border: none;
+    width: 35%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.boton:hover{
+	background: #5E5E5E;
+}
+.imagLogo{
+	border: 1px solid #A2A2A2;
+}
+.TablaComp{
+    width: 100%;
+}
+.titulo {
+    width: 100%;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0;
+    font-size: 30px;
+    color: #000000;
+}
+.booton{
+    border: none;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.booton:hover{
+	background: #5E5E5E;
+}
+.Bottones{
+    width: 100%;
+    text-align: center;
+}
+
+.contenedor-inp{
+    text-align: right;	
+}
+div .BDescargar{
+    text-align: right;
+    width: 100%;
+    float: right;
+}
+.BotDecar{
+    border: none;
+    width: 30%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;	
+}
+.BotDecar:hover{
+	background: #5E5E5E;	
+}
+.Boton{
+	 border: none;
+    width: 35%;
+    color: white;
+    font-size: 25px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+	
+}
+.Boton:hover{
+	background: #5E5E5E;	
+}
+
+ .BotonGraf{
+    border: none;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 65px 15px 65px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    font-family:Arial;	 
+}
+.BotonGraf:hover{
+	background: #5E5E5E;	
+}
+.MenuBotones{
+    text-align: center;
+    width: 100%;	
+}
+.Muni, .col, .Secc, .Vota{
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    margin: 20px 0px 30px 0px;
+    width: 100%;
+}
+.BotonMuni{
+    color: white;
+    font-size: 20px;
+    background: #A2A2A2;
+    border-radius: 5px;
+	padding: 20px 85px 20px 85px;
+    cursor: pointer;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Arial;
+    width: 20%;
+}
+.BotonMuni:hover{
+	background: #5E5E5E;	
+}
+.BotonCol{
+    color: white;
+    font-size: 20px;
+    background: #A2A2A2;
+    border-radius: 5px;
+	padding: 20px 30px 20px 30px;
+    cursor: pointer;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Arial;
+    width: 20%;	
+}
+.BotonCol:hover{
+	background: #5E5E5E;		
+}
+.BotonSecc{
+    color: white;
+    font-size: 20px;
+    background: #A2A2A2;
+    border-radius: 5px;
+	padding: 20px 89px 20px 89px;
+    cursor: pointer;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Arial;
+    width: 20%;	
+}
+.BotonSecc:hover{
+	background: #5E5E5E;		
+}
+.BotonVot{
+    color: white;
+    font-size: 20px;
+    background: #A2A2A2;
+    border-radius: 5px;
+	padding: 20px 86px 20px 86px;
+    cursor: pointer;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Arial;
+    width: 20%;		
+}
+.BotonVot:hover{
+	background: #5E5E5E;	
+}
+.logo{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.TablaDatos{
+    width: 100%;
+    text-align: center;
+}
+.BotonesCont{
+    width: 100%;
+    clear: both;
+    list-style-position: inside;
+}
+.bootonE, .bootonM, .bootonG{
+	border: none;
+    width: 25%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.bootonE:hover, .bootonM:hover, .bootonG :hover{
+	background: #5E5E5E;
+}
+.tableDatos{
+    width: 50%;
+    text-align: center;
+    margin-top: 0%;
+    margin-right: 24%;
+    margin-bottom: 0%;
+    margin-left: 25%;
+}
+.Grafica{
+    margin-top: 10px;
+    margin-right: 0px;
+    text-align: center;	
+}
+.contador{
+    padding: 5px;
+    font-size: 60px;
+    border-color: #A2A2A2;
+    border-radius: 7px;
+    border-style: solid;
+}
+.MenuCoor{
+    width: 25%;
+    text-align: center;
+    margin-left: 40%;		
+}
+.botonGraf{
+    color: white;
+    font-size: 20px;
+    font-family: Arial;
+    text-decoration: none;		
+}
+.BotonesDM{
+    width: 100%;
+    margin-top: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: #A2A2A2;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    color: #FFFFFF;
+}
+.BotonesDM:hover{
+	background: #5E5E5E;
+}

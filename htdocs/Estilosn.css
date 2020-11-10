@@ -1,0 +1,459 @@
+@charset "utf-8";
+div .primary_header {
+    width: 100%;
+    display: compact;
+    text-align: center;
+    text-indent: 10px;
+    background-color: #A2A2A2;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: Arial;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #A2A2A2;
+    font-family: Arial;
+    width: 100%;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: right;
+    font-size: 16px;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* The dropdown container */
+.dropdown {
+    float: right;
+    overflow: hidden;	
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #FFFFFF;
+    color: #000000;	
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 85%;
+    right: 0;
+    width: 15%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    z-index: 1;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.contenedor-inp{
+    text-align: right;
+    width: 100%;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+th {
+  background-color:#86B4F0;
+  color: white;
+}
+.table {
+    width: 100%;
+	
+}
+
+tr.selected td{
+   background: #5E5E5E; 
+}
+.titulo {
+    width: 100%;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0;
+    font-size: 30px;
+    color: #A2A2A2;
+}
+.booton{
+    border: none;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.booton:hover{
+	background: #5E5E5E;
+}
+.Bottones{
+    width: 150%;
+    text-align: center;
+}
+.logo{
+    text-align: center;
+}
+.fa-plus{
+    width: 100%;
+    font-size: 500%;
+    color: #FFFFFF;	
+}
+.agregar{
+    width: 100%;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: #A2A2A2;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.MenuCap{
+    width: 20%;
+    text-align: center;
+    margin-left: 43%;	
+
+}
+
+*  {box-sizing: border-box;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #A2A2A2;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px; 
+}
+
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.DatosRed{
+    text-align: left;
+    color: #A2A2A2;
+    font-size: 30px;
+}
+.ID:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.id{
+  float: left;
+  width: 10%;
+  margin-top: 6px;	
+}
+.IdR{
+	border: 1px solid #A2A2A2;
+}
+.idR{
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+	
+}
+.ID{
+	width: 100%;
+}
+.FechadeRed{
+    float: left;
+    width: 12%;
+    margin-top: 6px;
+    margin-left: 25px;
+}
+.FechadeRedR{
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+.NomLider{
+    width: 100%;
+}
+.NomLider:after {
+  content: "";
+  display: table;
+  clear: both;	
+}
+.NombreL{
+  float: left;
+  width: 15%;
+  margin-top: 6px;	
+}
+.NomLidR{
+  float: left;
+  width: 25%;
+  margin-top: 6px;	
+}
+.ApeLidR{
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    margin-left: 5px;	
+}
+.NomPromtr{
+    width: 100%;	
+}
+.NomPromtr:after{
+  content: "";
+  display: table;
+  clear: both;	
+}
+.NombreP{
+  float: left;
+  width: 15%;
+  margin-top: 6px;		
+}
+.NomPromR{
+  float: left;
+  width: 25%;
+  margin-top: 6px;		
+}
+.ApePromR{
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+.Botones{
+    width: 100%;
+    text-align: center;	
+}
+
+.Boton{
+    border: none;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;	
+}
+.Boton:hover{
+		background: #5E5E5E;
+}
+
+.NuevaRed{
+    color: white;
+    font-size: 19px;
+    font-family: Arial;
+    text-decoration: none;	
+}
+.NombreLP{
+    width: 100%;
+    border: 1px solid #A2A2A2;
+    border-radius: 4px;
+    padding: 20px;
+    resize: vertical;
+}
+.ApellidoP{
+    width: 100%;
+    border: 1px solid #A2A2A2;
+    border-radius: 4px;
+    padding: 20px;
+    resize: vertical;	
+}
+.ApellidoM{
+    width: 100%;
+    border: 1px solid #A2A2A2;
+    border-radius: 4px;
+    padding: 20px;
+    resize: vertical;	
+}
+.Domicilio{
+	width: 100%;
+}
+.DatosDom{
+  float: left;
+  width: 15%;
+  margin-top: 6px;		
+}
+.Calle{
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+
+}
+.ColCom{
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+  margin-left: 5px; 
+}
+.Mun{
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+    margin-left: 5px; 
+}
+.Secc{
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+  margin-left: 5px; 
+}
+.DatOCR{
+    width: 100%;
+    float: left;	
+}
+.Telefono{
+    width: 100%;
+    float: left;
+}
+.OCR{
+  float: left;
+  width: 15%;
+  margin-top: 6px;	
+}
+.OCRr{
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+.numTel{
+  float: left;
+  width: 15%;
+  margin-top: 6px;		
+}
+.TelR{
+  float: left;
+  width: 15%;
+  margin-top: 6px;	
+}
+.fa-chart-bar{
+	font-size: 150%;
+    color: #FFFFFF;	
+}
+.MenuCoor{
+    width: 25%;
+    text-align: center;
+    margin-left: 40%;		
+}
+.botonGraf{
+    color: white;
+    font-size: 18px;
+    font-family: Arial;
+    text-decoration: none;		
+}
+.BotonesDM{
+    width: 100%;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: #A2A2A2;
+    border-radius: 5px;
+    padding: 10px;
+    color: #FFFFFF;
+}
+.BotonesDM:hover{
+	background: #5E5E5E;
+}
+.BotDecar{
+    border: none;
+    width: 30%;
+    color: white;
+    font-size: 15px;
+    background: #A2A2A2;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;	
+}
+.BotDecar:hover{
+	background: #5E5E5E;	
+}
+div .BDescargar{
+    text-align: right;
+    width: 100%;
+    float: right;
+}
+.Grafica{
+    margin-top: 10px;
+    margin-right: 0px;
+    text-align: center;	
+}
+.contador{
+    padding: 5px;
+    font-size: 60px;
+    border-color: #A2A2A2;
+    border-radius: 7px;
+    border-style: solid;
+}
