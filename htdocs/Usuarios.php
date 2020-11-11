@@ -87,13 +87,18 @@
           echo "<td>" . $row["municipio"] . "</td>";
           
           if ($row["Role"]=="Admin"){
-            echo"<td>" . $row["Role"] . "</td>";   
+            echo $table_header; 
+            echo "<option value='Nada'>Deshabilitado</option>";
+            echo "<option value='Coordinador'>Coordinador</option>";
+            echo "<option value='Capturista'>Capturista</option>";
+            echo "<option value='Admin' selected>Admin</option>"; 
            
           }elseif($row["Role"]=="Coordinador"){
             echo $table_header; 
             echo "<option value='Nada'>Deshabilitado</option>";
             echo "<option value='Coordinador' selected>Coordinador</option>";
             echo "<option value='Capturista'>Capturista</option>";
+            echo "<option value='Admin'>Admin</option>";
             
             echo " </select>";
               echo "</td>";
@@ -101,12 +106,14 @@
             echo $table_header; 
             echo "<option value='Nada'>Deshabilitado</option>";
             echo "<option value='Coordinador'>Coordinador</option>";
-            echo "<option value='Capturista' selected>Capturista</option>";  
+            echo "<option value='Capturista' selected>Capturista</option>";
+            echo "<option value='Admin'>Admin</option>";
           }else{
             echo $table_header; 
             echo "<option value='Nada' selected>Deshabilitado</option>";
             echo "<option value='Coordinador'>Coordinador</option>";
-            echo "<option value='Capturista'>Capturista</option>";  
+            echo "<option value='Capturista'>Capturista</option>";
+            echo "<option value='Admin'>Admin</option>";
           }
           echo "</tr>";
     }
